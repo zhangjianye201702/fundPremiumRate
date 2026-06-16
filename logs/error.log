@@ -1,0 +1,6 @@
+[2026-06-16 17:43:48] [ERROR] 解析基金列表数据失败: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:43:48] [ERROR] 获取QDII基金列表失败: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:43:48] [ERROR] 获取QDII基金列表失败，使用空列表: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:45:00] [ERROR] 解析基金列表数据失败: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:45:00] [ERROR] 获取QDII基金列表失败: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:45:00] [ERROR] 获取QDII基金列表失败，使用空列表: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1

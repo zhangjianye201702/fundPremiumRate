@@ -1,0 +1,25 @@
+{
+  "name": "fund-premium-rate",
+  "version": "1.0.0",
+  "description": "QDII基金溢价率实时查看模块 - 支持场内交易国外ETF产品",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node src/app.js"
+  },
+  "keywords": [
+    "QDII",
+    "fund",
+    "premium",
+    "ETF",
+    "finance"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "express": "^4.18.2",
+    "node-cron": "^3.0.3",
+    "winston": "^3.11.0"
+  }
+}

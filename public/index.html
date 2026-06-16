@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QDII基金溢价率实时查看</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- 页面头部 -->
+  <header class="header">
+    <div class="header-content">
+      <h1>QDII基金溢价率实时查看</h1>
+      <div class="status-bar">
+        <span id="updateTime" class="update-time">数据加载中...</span>
+        <button id="refreshBtn" class="btn btn-refresh" title="手动刷新数据">刷新数据</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 筛选工具栏 -->
+  <section class="toolbar">
+    <div class="filter-group">
+      <label for="fundTypeFilter">基金类型：</label>
+      <select id="fundTypeFilter" class="select">
+        <option value="ALL">全部</option>
+        <option value="QDII">QDII基金</option>
+        <option value="ETF">跨境ETF</option>
+        <option value="LOF">LOF基金</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="sortBy">排序：</label>
+      <select id="sortBy" class="select">
+        <option value="premiumRate">溢价率</option>
+        <option value="changeRate">涨跌幅</option>
+        <option value="fundName">基金名称</option>
+        <option value="marketPrice">市场价格</option>
+        <option value="nav">基金净值</option>
+      </select>
+      <select id="sortOrder" class="select">
+        <option value="desc">降序</option>
+        <option value="asc">升序</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="minPremium">溢价率范围：</label>
+      <input type="number" id="minPremium" class="input-number" placeholder="最低%" step="0.1">
+      <span class="range-separator">~</span>
+      <input type="number" id="maxPremium" class="input-number" placeholder="最高%" step="0.1">
+    </div>
+
+    <div class="filter-group">
+      <input type="text" id="keyword" class="input-text" placeholder="搜索基金代码或名称...">
+    </div>
+  </section>
+
+  <!-- 数据统计信息 -->
+  <section class="stats-bar">
+    <span class="stat-item">共 <strong id="totalCount">0</strong> 只基金</span>
+    <span class="stat-item stat-high">高溢价(>5%): <strong id="highRiskCount">0</strong></span>
+    <span class="stat-item stat-medium">中溢价(2-5%): <strong id="mediumRiskCount">0</strong></span>
+    <span class="stat-item stat-low">低溢价/折价(<2%): <strong id="lowRiskCount">0</strong></span>
+  </section>
+
+  <!-- 错误提示区域 -->
+  <div id="errorBanner" class="error-banner" style="display: none;">
+    <span id="errorMessage"></span>
+    <button onclick="document.getElementById('errorBanner').style.display='none'" class="btn-close">×</button>
+  </div>
+
+  <!-- 数据加载提示 -->
+  <div id="loadingOverlay" class="loading-overlay">
+    <div class="loading-spinner"></div>
+    <p>正在获取基金数据，请稍候...</p>
+  </div>
+
+  <!-- 基金数据表格 -->
+  <main class="table-container">
+    <table class="fund-table" id="fundTable">
+      <thead>
+        <tr>
+          <th class="col-code">基金代码</th>
+          <th class="col-name">基金名称</th>
+          <th class="col-type">类型</th>
+          <th class="col-price sortable" data-sort="marketPrice">市场价格(元) <span class="sort-icon"></span></th>
+          <th class="col-nav sortable" data-sort="nav">基金净值(元) <span class="sort-icon"></span></th>
+          <th class="col-premium sortable" data-sort="premiumRate">溢价率 <span class="sort-icon"></span></th>
+          <th class="col-change sortable" data-sort="changeRate">涨跌幅 <span class="sort-icon"></span></th>
+          <th class="col-volume">成交额(万)</th>
+          <th class="col-risk">风险等级</th>
+          <th class="col-navtime">净值日期</th>
+        </tr>
+      </thead>
+      <tbody id="fundTableBody">
+        <!-- 数据由 JavaScript 动态填充 -->
+      </tbody>
+    </table>
+    <div id="emptyState" class="empty-state" style="display: none;">
+      <p>暂无符合条件的基金数据</p>
+    </div>
+  </main>
+
+  <!-- 页面底部 -->
+  <footer class="footer">
+    <p>数据来源：东方财富网 | 数据每15分钟自动更新 | 仅供参考，不构成投资建议</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>

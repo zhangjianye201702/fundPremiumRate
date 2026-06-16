@@ -1,0 +1,130 @@
+[2026-06-16 17:43:48] [INFO] QDII基金溢价率查看服务已启动
+[2026-06-16 17:43:48] [INFO] 访问地址: http://localhost:3000
+[2026-06-16 17:43:48] [INFO] API文档地址: http://localhost:3000/api/status
+[2026-06-16 17:43:48] [INFO] 启动首次数据采集...
+[2026-06-16 17:43:48] [INFO] 开始采集基金数据...
+[2026-06-16 17:43:48] [INFO] 加载跨境ETF列表，共 30 只
+[2026-06-16 17:43:48] [INFO] 定时任务已启动，执行频率: */15 * * * *（每15分钟一次）
+[2026-06-16 17:43:48] [ERROR] 解析基金列表数据失败: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:43:48] [ERROR] 获取QDII基金列表失败: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:43:48] [ERROR] 获取QDII基金列表失败，使用空列表: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:43:48] [INFO] 共需采集 30 只基金数据
+[2026-06-16 17:43:48] [WARN] 获取基金 164906 净值失败: Unexpected end of JSON input
+[2026-06-16 17:43:48] [WARN] 获取基金 513050 净值失败: Unexpected end of JSON input
+[2026-06-16 17:43:48] [WARN] 获取基金 159605 净值失败: Unexpected end of JSON input
+[2026-06-16 17:43:49] [WARN] 获取基金 513030 净值失败: Unexpected end of JSON input
+[2026-06-16 17:43:49] [WARN] 获取基金 159687 净值失败: Unexpected end of JSON input
+[2026-06-16 17:43:49] [WARN] 获取基金 159329 净值失败: Unexpected end of JSON input
+[2026-06-16 17:43:49] [INFO] 基金数据采集完成，共获取 24 条有效数据，耗时 873ms
+[2026-06-16 17:43:49] [INFO] 定时数据刷新成功完成
+[2026-06-16 17:45:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/16 17:45:00]
+[2026-06-16 17:45:00] [INFO] 开始采集基金数据...
+[2026-06-16 17:45:00] [INFO] 加载跨境ETF列表，共 30 只
+[2026-06-16 17:45:00] [ERROR] 解析基金列表数据失败: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:45:00] [ERROR] 获取QDII基金列表失败: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:45:00] [ERROR] 获取QDII基金列表失败，使用空列表: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:45:00] [INFO] 共需采集 30 只基金数据
+[2026-06-16 17:45:00] [WARN] 获取基金 164906 净值失败: Unexpected end of JSON input
+[2026-06-16 17:45:00] [WARN] 获取基金 159605 净值失败: Unexpected end of JSON input
+[2026-06-16 17:45:00] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:00] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:00] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:00] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:00] [WARN] 获取基金 513050 净值失败: Unexpected end of JSON input
+[2026-06-16 17:45:00] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:00] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:01] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:01] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:01] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:01] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:01] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:02] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:02] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:02] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:03] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:03] [WARN] 获取基金 513330 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:03] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:03] [WARN] 获取基金 513100 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:03] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:03] [WARN] 获取基金 159941 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:03] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:03] [WARN] 获取基金 510900 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:04] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:04] [WARN] 获取基金 159948 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:04] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:04] [WARN] 获取基金 159920 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:04] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:04] [WARN] 获取基金 513500 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:04] [WARN] 获取基金 513030 净值失败: Unexpected end of JSON input
+[2026-06-16 17:45:04] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:04] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:04] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:04] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:04] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:04] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:04] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:04] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:04] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:05] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:05] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:05] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:05] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:05] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:05] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:05] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:05] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:05] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:07] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:07] [WARN] 获取基金 159865 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:07] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:07] [WARN] 获取基金 513980 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:07] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:07] [WARN] 获取基金 159766 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:07] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:07] [WARN] 获取基金 159740 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:07] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:07] [WARN] 获取基金 513180 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:07] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:07] [WARN] 获取基金 159509 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:07] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:07] [WARN] 获取基金 159712 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:07] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:07] [WARN] 获取基金 513010 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:07] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:07] [WARN] 获取基金 159611 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:07] [WARN] 获取基金 159329 净值失败: Unexpected end of JSON input
+[2026-06-16 17:45:07] [WARN] 获取基金 159687 净值失败: Unexpected end of JSON input
+[2026-06-16 17:45:07] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:07] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:07] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:07] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:07] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:07] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:07] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:07] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:08] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:08] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:08] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:08] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:08] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:08] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:08] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:09] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:11] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:11] [WARN] 获取基金 159892 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:11] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:11] [WARN] 获取基金 520560 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:11] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:11] [WARN] 获取基金 159723 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:11] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:11] [WARN] 获取基金 513850 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:11] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:11] [WARN] 获取基金 159545 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:11] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:11] [WARN] 获取基金 513060 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:11] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:11] [WARN] 获取基金 159697 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:11] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:45:11] [WARN] 获取基金 159709 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:45:11] [INFO] 基金数据采集完成，共获取 24 条有效数据，耗时 10984ms
+[2026-06-16 17:45:11] [INFO] 定时数据刷新成功完成
