@@ -307,12 +307,14 @@ body {
 }
 
 .col-price,
-.col-nav {
+.col-nav,
+.col-estnav {
   width: 110px;
 }
 
-.col-premium {
-  width: 100px;
+.col-premium,
+.col-estpremium {
+  width: 110px;
 }
 
 .col-change {

@@ -128,3 +128,325 @@
 [2026-06-16 17:45:11] [WARN] 获取基金 159709 市场价格失败: 数据源请求失败，已重试3次: socket hang up
 [2026-06-16 17:45:11] [INFO] 基金数据采集完成，共获取 24 条有效数据，耗时 10984ms
 [2026-06-16 17:45:11] [INFO] 定时数据刷新成功完成
+[2026-06-16 17:50:30] [INFO] QDII基金溢价率查看服务已启动
+[2026-06-16 17:50:30] [INFO] 访问地址: http://localhost:3000
+[2026-06-16 17:50:30] [INFO] API文档地址: http://localhost:3000/api/status
+[2026-06-16 17:50:30] [INFO] 启动首次数据采集...
+[2026-06-16 17:50:30] [INFO] 开始采集基金数据...
+[2026-06-16 17:50:30] [INFO] 加载跨境ETF列表，共 30 只
+[2026-06-16 17:50:30] [INFO] 定时任务已启动，执行频率: */15 * * * *（每15分钟一次）
+[2026-06-16 17:50:30] [ERROR] 解析基金列表数据失败: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:50:30] [ERROR] 获取QDII基金列表失败: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:50:30] [ERROR] 获取QDII基金列表失败，使用空列表: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:50:30] [INFO] 共需采集 30 只基金数据
+[2026-06-16 17:50:30] [WARN] 获取基金 164906 净值失败: Unexpected end of JSON input
+[2026-06-16 17:50:30] [WARN] 获取基金 513050 净值失败: Unexpected end of JSON input
+[2026-06-16 17:50:30] [WARN] 获取基金 159605 净值失败: Unexpected end of JSON input
+[2026-06-16 17:50:30] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:30] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:30] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:30] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:30] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:31] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:31] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:32] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:32] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:32] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:32] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:32] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:32] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:32] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:34] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:34] [WARN] 获取基金 159948 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:34] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:34] [WARN] 获取基金 513100 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:34] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:34] [WARN] 获取基金 159941 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:34] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:34] [WARN] 获取基金 513500 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:34] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:34] [WARN] 获取基金 510900 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:34] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:34] [WARN] 获取基金 159920 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:34] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:34] [WARN] 获取基金 513330 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:34] [WARN] 获取基金 513030 净值失败: Unexpected end of JSON input
+[2026-06-16 17:50:34] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:34] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:34] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:34] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:34] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:34] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:34] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:34] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:34] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:35] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:35] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:35] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:35] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:35] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:35] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:35] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:35] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:35] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:37] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:37] [WARN] 获取基金 159865 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:37] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:37] [WARN] 获取基金 159766 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:37] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:37] [WARN] 获取基金 513180 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:37] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:37] [WARN] 获取基金 159611 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:37] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:37] [WARN] 获取基金 159740 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:37] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:37] [WARN] 获取基金 159509 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:37] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:37] [WARN] 获取基金 513010 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:38] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:38] [WARN] 获取基金 513980 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:38] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:38] [WARN] 获取基金 159712 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:38] [WARN] 获取基金 159329 净值失败: Unexpected end of JSON input
+[2026-06-16 17:50:38] [WARN] 获取基金 159687 净值失败: Unexpected end of JSON input
+[2026-06-16 17:50:38] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:38] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:38] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:38] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:38] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:38] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:38] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:38] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:39] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:39] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:39] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:39] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:39] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:39] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:39] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:39] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:41] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:41] [WARN] 获取基金 520560 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:41] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:41] [WARN] 获取基金 513060 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:41] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:41] [WARN] 获取基金 159697 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:41] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:41] [WARN] 获取基金 159709 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:41] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:41] [WARN] 获取基金 159892 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:41] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:41] [WARN] 获取基金 513850 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:41] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:41] [WARN] 获取基金 159545 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:41] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/stock/get，错误: socket hang up
+[2026-06-16 17:50:41] [WARN] 获取基金 159723 市场价格失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:50:41] [INFO] 基金数据采集完成，共获取 24 条有效数据，耗时 11070ms
+[2026-06-16 17:50:41] [INFO] 定时数据刷新成功完成
+[2026-06-16 17:52:39] [INFO] QDII基金溢价率查看服务已启动
+[2026-06-16 17:52:39] [INFO] 访问地址: http://localhost:3000
+[2026-06-16 17:52:39] [INFO] API文档地址: http://localhost:3000/api/status
+[2026-06-16 17:52:39] [INFO] 启动首次数据采集...
+[2026-06-16 17:52:39] [INFO] 开始采集基金数据...
+[2026-06-16 17:52:39] [INFO] 加载跨境ETF列表，共 30 只
+[2026-06-16 17:52:39] [INFO] 定时任务已启动，执行频率: */15 * * * *（每15分钟一次）
+[2026-06-16 17:52:40] [ERROR] 解析基金列表数据失败: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:52:40] [ERROR] 获取QDII基金列表失败: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:52:40] [ERROR] 获取QDII基金列表失败，使用空列表: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:52:40] [INFO] 共需采集 30 只基金数据
+[2026-06-16 17:52:40] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/ulist.np/get，错误: socket hang up
+[2026-06-16 17:52:41] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/ulist.np/get，错误: socket hang up
+[2026-06-16 17:52:43] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/ulist.np/get，错误: socket hang up
+[2026-06-16 17:52:43] [ERROR] 批量获取行情数据失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:52:43] [WARN] 获取基金 164906 净值失败: Unexpected end of JSON input
+[2026-06-16 17:52:43] [WARN] 获取基金 513050 净值失败: Unexpected end of JSON input
+[2026-06-16 17:52:43] [WARN] 获取基金 159605 净值失败: Unexpected end of JSON input
+[2026-06-16 17:52:43] [WARN] 获取基金 513030 净值失败: Unexpected end of JSON input
+[2026-06-16 17:52:43] [WARN] 获取基金 159687 净值失败: Unexpected end of JSON input
+[2026-06-16 17:52:43] [WARN] 获取基金 159329 净值失败: Unexpected end of JSON input
+[2026-06-16 17:52:44] [INFO] 基金数据采集完成，共获取 24 条有效数据，耗时 4259ms
+[2026-06-16 17:52:44] [INFO] 定时数据刷新成功完成
+[2026-06-16 17:53:55] [INFO] QDII基金溢价率查看服务已启动
+[2026-06-16 17:53:55] [INFO] 访问地址: http://localhost:3000
+[2026-06-16 17:53:55] [INFO] API文档地址: http://localhost:3000/api/status
+[2026-06-16 17:53:55] [INFO] 启动首次数据采集...
+[2026-06-16 17:53:55] [INFO] 开始采集基金数据...
+[2026-06-16 17:53:55] [INFO] 加载跨境ETF列表，共 30 只
+[2026-06-16 17:53:55] [INFO] 定时任务已启动，执行频率: */15 * * * *（每15分钟一次）
+[2026-06-16 17:53:56] [ERROR] 解析基金列表数据失败: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:53:56] [ERROR] 获取QDII基金列表失败: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:53:56] [ERROR] 获取QDII基金列表失败，使用空列表: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:53:56] [INFO] 共需采集 30 只基金数据
+[2026-06-16 17:53:56] [WARN] 请求失败（第1次）: https://push2.eastmoney.com/api/qt/ulist.np/get，错误: socket hang up
+[2026-06-16 17:53:57] [WARN] 请求失败（第2次）: https://push2.eastmoney.com/api/qt/ulist.np/get，错误: socket hang up
+[2026-06-16 17:53:59] [WARN] 请求失败（第3次）: https://push2.eastmoney.com/api/qt/ulist.np/get，错误: socket hang up
+[2026-06-16 17:53:59] [ERROR] 批量获取行情数据失败: 数据源请求失败，已重试3次: socket hang up
+[2026-06-16 17:53:59] [WARN] 获取基金 513050 净值失败: Unexpected end of JSON input
+[2026-06-16 17:53:59] [WARN] 获取基金 164906 净值失败: Unexpected end of JSON input
+[2026-06-16 17:53:59] [WARN] 获取基金 159605 净值失败: Unexpected end of JSON input
+[2026-06-16 17:53:59] [WARN] 获取基金 513030 净值失败: Unexpected end of JSON input
+[2026-06-16 17:53:59] [WARN] 获取基金 159329 净值失败: Unexpected end of JSON input
+[2026-06-16 17:54:00] [WARN] 获取基金 159687 净值失败: Unexpected end of JSON input
+[2026-06-16 17:54:00] [INFO] 基金数据采集完成，共获取 24 条有效数据，耗时 4286ms
+[2026-06-16 17:54:00] [INFO] 定时数据刷新成功完成
+[2026-06-16 17:58:42] [INFO] QDII基金溢价率查看服务已启动
+[2026-06-16 17:58:43] [INFO] 访问地址: http://localhost:3000
+[2026-06-16 17:58:43] [INFO] API文档地址: http://localhost:3000/api/status
+[2026-06-16 17:58:43] [INFO] 启动首次数据采集...
+[2026-06-16 17:58:43] [INFO] 开始采集基金数据...
+[2026-06-16 17:58:43] [INFO] 加载跨境ETF列表，共 30 只
+[2026-06-16 17:58:43] [INFO] 定时任务已启动，执行频率: */15 * * * *（每15分钟一次）
+[2026-06-16 17:58:43] [ERROR] 解析基金列表数据失败: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:58:43] [ERROR] 获取QDII基金列表失败: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:58:43] [ERROR] 获取QDII基金列表失败，使用空列表: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 17:58:43] [INFO] 共需采集 30 只基金数据
+[2026-06-16 17:58:43] [INFO] 批量获取行情成功，共 9/30 只基金有价格数据
+[2026-06-16 17:58:43] [WARN] 获取基金 164906 净值失败: Unexpected end of JSON input
+[2026-06-16 17:58:43] [WARN] 获取基金 513050 净值失败: Unexpected end of JSON input
+[2026-06-16 17:58:43] [WARN] 获取基金 159605 净值失败: Unexpected end of JSON input
+[2026-06-16 17:58:43] [WARN] 获取基金 513030 净值失败: Unexpected end of JSON input
+[2026-06-16 17:58:43] [WARN] 获取基金 159329 净值失败: Unexpected end of JSON input
+[2026-06-16 17:58:43] [WARN] 获取基金 159687 净值失败: Unexpected end of JSON input
+[2026-06-16 17:58:43] [INFO] 基金数据采集完成，共获取 24 条有效数据，耗时 984ms
+[2026-06-16 17:58:43] [INFO] 定时数据刷新成功完成
+[2026-06-16 18:00:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/16 18:00:00]
+[2026-06-16 18:00:00] [INFO] 开始采集基金数据...
+[2026-06-16 18:00:00] [INFO] 加载跨境ETF列表，共 30 只
+[2026-06-16 18:00:00] [ERROR] 解析基金列表数据失败: Expected property name or '}' in JSON at position 1
+[2026-06-16 18:00:00] [ERROR] 获取QDII基金列表失败: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 18:00:00] [ERROR] 获取QDII基金列表失败，使用空列表: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 18:00:00] [INFO] 共需采集 30 只基金数据
+[2026-06-16 18:00:01] [INFO] 批量获取行情成功，共 9/30 只基金有价格数据
+[2026-06-16 18:00:01] [WARN] 获取基金 513050 净值失败: Unexpected end of JSON input
+[2026-06-16 18:00:01] [WARN] 获取基金 164906 净值失败: Unexpected end of JSON input
+[2026-06-16 18:00:01] [WARN] 获取基金 159605 净值失败: Unexpected end of JSON input
+[2026-06-16 18:00:01] [WARN] 获取基金 513030 净值失败: Unexpected end of JSON input
+[2026-06-16 18:00:01] [WARN] 获取基金 159687 净值失败: Unexpected end of JSON input
+[2026-06-16 18:00:01] [WARN] 获取基金 159329 净值失败: Unexpected end of JSON input
+[2026-06-16 18:00:01] [INFO] 基金数据采集完成，共获取 24 条有效数据，耗时 1082ms
+[2026-06-16 18:00:01] [INFO] 定时数据刷新成功完成
+[2026-06-16 18:00:36] [INFO] QDII基金溢价率查看服务已启动
+[2026-06-16 18:00:36] [INFO] 访问地址: http://localhost:3000
+[2026-06-16 18:00:36] [INFO] API文档地址: http://localhost:3000/api/status
+[2026-06-16 18:00:36] [INFO] 启动首次数据采集...
+[2026-06-16 18:00:36] [INFO] 开始采集基金数据...
+[2026-06-16 18:00:36] [INFO] 加载跨境ETF列表，共 30 只
+[2026-06-16 18:00:36] [INFO] 定时任务已启动，执行频率: */15 * * * *（每15分钟一次）
+[2026-06-16 18:00:36] [ERROR] 解析基金列表数据失败: Expected property name or '}' in JSON at position 1
+[2026-06-16 18:00:36] [ERROR] 获取QDII基金列表失败: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 18:00:36] [ERROR] 获取QDII基金列表失败，使用空列表: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 18:00:36] [INFO] 共需采集 30 只基金数据
+[2026-06-16 18:00:36] [INFO] 批量获取行情成功，共 30/30 只基金有价格数据
+[2026-06-16 18:00:37] [WARN] 获取基金 513050 净值失败: Unexpected end of JSON input
+[2026-06-16 18:00:37] [WARN] 获取基金 164906 净值失败: Unexpected end of JSON input
+[2026-06-16 18:00:37] [WARN] 获取基金 159605 净值失败: Unexpected end of JSON input
+[2026-06-16 18:00:37] [WARN] 获取基金 513030 净值失败: Unexpected end of JSON input
+[2026-06-16 18:00:37] [WARN] 获取基金 159329 净值失败: Unexpected end of JSON input
+[2026-06-16 18:00:37] [WARN] 获取基金 159687 净值失败: Unexpected end of JSON input
+[2026-06-16 18:00:37] [INFO] 基金数据采集完成，共获取 24 条有效数据，耗时 963ms
+[2026-06-16 18:00:37] [INFO] 定时数据刷新成功完成
+[2026-06-16 18:08:59] [INFO] QDII基金溢价率查看服务已启动
+[2026-06-16 18:08:59] [INFO] 访问地址: http://localhost:3000
+[2026-06-16 18:08:59] [INFO] API文档地址: http://localhost:3000/api/status
+[2026-06-16 18:08:59] [INFO] 启动首次数据采集...
+[2026-06-16 18:08:59] [INFO] 开始采集基金数据...
+[2026-06-16 18:08:59] [INFO] 加载跨境ETF列表，共 30 只
+[2026-06-16 18:08:59] [INFO] 定时任务已启动，执行频率: */15 * * * *（每15分钟一次）
+[2026-06-16 18:08:59] [ERROR] 解析基金列表数据失败: Expected property name or '}' in JSON at position 1
+[2026-06-16 18:08:59] [ERROR] 获取QDII基金列表失败: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 18:08:59] [ERROR] 获取QDII基金列表失败，使用空列表: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 18:08:59] [INFO] 共需采集 30 只基金数据
+[2026-06-16 18:08:59] [INFO] 批量获取行情成功，共 30/30 只基金有价格数据
+[2026-06-16 18:08:59] [WARN] 获取基金 513050 净值失败: Unexpected end of JSON input
+[2026-06-16 18:08:59] [WARN] 获取基金 164906 净值失败: Unexpected end of JSON input
+[2026-06-16 18:08:59] [WARN] 获取基金 159605 净值失败: Unexpected end of JSON input
+[2026-06-16 18:09:00] [WARN] 获取基金 513030 净值失败: Unexpected end of JSON input
+[2026-06-16 18:09:00] [WARN] 获取基金 159687 净值失败: Unexpected end of JSON input
+[2026-06-16 18:09:00] [WARN] 获取基金 159329 净值失败: Unexpected end of JSON input
+[2026-06-16 18:09:00] [INFO] 基金数据采集完成，共获取 24 条有效数据，耗时 1043ms
+[2026-06-16 18:09:00] [INFO] 定时数据刷新成功完成
+[2026-06-16 18:13:00] [INFO] QDII基金溢价率查看服务已启动
+[2026-06-16 18:13:00] [INFO] 访问地址: http://localhost:3000
+[2026-06-16 18:13:00] [INFO] API文档地址: http://localhost:3000/api/status
+[2026-06-16 18:13:00] [INFO] 启动首次数据采集...
+[2026-06-16 18:13:00] [INFO] 开始采集基金数据...
+[2026-06-16 18:13:00] [INFO] 加载跨境ETF列表，共 50 只
+[2026-06-16 18:13:00] [INFO] 定时任务已启动，执行频率: */15 * * * *（每15分钟一次）
+[2026-06-16 18:13:00] [ERROR] 解析基金列表数据失败: Expected property name or '}' in JSON at position 1
+[2026-06-16 18:13:00] [ERROR] 获取QDII基金列表失败: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 18:13:00] [ERROR] 获取QDII基金列表失败，使用空列表: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 18:13:00] [INFO] 共需采集 50 只基金数据
+[2026-06-16 18:13:01] [INFO] 批量获取行情成功，共 49/50 只基金有价格数据
+[2026-06-16 18:13:01] [WARN] 获取基金 513050 净值失败: Unexpected end of JSON input
+[2026-06-16 18:13:01] [WARN] 获取基金 164906 净值失败: Unexpected end of JSON input
+[2026-06-16 18:13:01] [WARN] 获取基金 159605 净值失败: Unexpected end of JSON input
+[2026-06-16 18:13:01] [WARN] 请求失败（第1次）: https://fundgz.1234567.com.cn/js/159410.js，错误: Request failed with status code 404
+[2026-06-16 18:13:02] [WARN] 请求失败（第2次）: https://fundgz.1234567.com.cn/js/159410.js，错误: Request failed with status code 404
+[2026-06-16 18:13:04] [WARN] 请求失败（第3次）: https://fundgz.1234567.com.cn/js/159410.js，错误: Request failed with status code 404
+[2026-06-16 18:13:04] [WARN] 获取基金 159410 净值失败: 数据源请求失败，已重试3次: Request failed with status code 404
+[2026-06-16 18:13:04] [WARN] 获取基金 513520 净值失败: Unexpected end of JSON input
+[2026-06-16 18:13:04] [WARN] 获取基金 513880 净值失败: Unexpected end of JSON input
+[2026-06-16 18:13:04] [WARN] 获取基金 513030 净值失败: Unexpected end of JSON input
+[2026-06-16 18:13:05] [WARN] 获取基金 159687 净值失败: Unexpected end of JSON input
+[2026-06-16 18:13:05] [WARN] 获取基金 159329 净值失败: Unexpected end of JSON input
+[2026-06-16 18:13:05] [WARN] 获取基金 159980 净值失败: Unexpected end of JSON input
+[2026-06-16 18:13:05] [INFO] 基金数据采集完成，共获取 40 条有效数据，耗时 4623ms
+[2026-06-16 18:13:05] [INFO] 定时数据刷新成功完成
+[2026-06-16 18:15:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/16 18:15:00]
+[2026-06-16 18:15:00] [INFO] 开始采集基金数据...
+[2026-06-16 18:15:00] [INFO] 加载跨境ETF列表，共 50 只
+[2026-06-16 18:15:01] [ERROR] 解析基金列表数据失败: Expected property name or '}' in JSON at position 1
+[2026-06-16 18:15:01] [ERROR] 获取QDII基金列表失败: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 18:15:01] [ERROR] 获取QDII基金列表失败，使用空列表: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 18:15:01] [INFO] 共需采集 50 只基金数据
+[2026-06-16 18:15:01] [INFO] 批量获取行情成功，共 49/50 只基金有价格数据
+[2026-06-16 18:15:01] [WARN] 获取基金 513050 净值失败: Unexpected end of JSON input
+[2026-06-16 18:15:01] [WARN] 获取基金 164906 净值失败: Unexpected end of JSON input
+[2026-06-16 18:15:01] [WARN] 获取基金 159605 净值失败: Unexpected end of JSON input
+[2026-06-16 18:15:01] [WARN] 请求失败（第1次）: https://fundgz.1234567.com.cn/js/159410.js，错误: Request failed with status code 404
+[2026-06-16 18:15:02] [WARN] 请求失败（第2次）: https://fundgz.1234567.com.cn/js/159410.js，错误: Request failed with status code 404
+[2026-06-16 18:15:04] [WARN] 请求失败（第3次）: https://fundgz.1234567.com.cn/js/159410.js，错误: Request failed with status code 404
+[2026-06-16 18:15:04] [WARN] 获取基金 159410 净值失败: 数据源请求失败，已重试3次: Request failed with status code 404
+[2026-06-16 18:15:04] [WARN] 获取基金 513520 净值失败: Unexpected end of JSON input
+[2026-06-16 18:15:05] [WARN] 获取基金 513880 净值失败: Unexpected end of JSON input
+[2026-06-16 18:15:05] [WARN] 获取基金 513030 净值失败: Unexpected end of JSON input
+[2026-06-16 18:15:05] [WARN] 获取基金 159687 净值失败: Unexpected end of JSON input
+[2026-06-16 18:15:05] [WARN] 获取基金 159329 净值失败: Unexpected end of JSON input
+[2026-06-16 18:15:05] [WARN] 获取基金 159980 净值失败: Unexpected end of JSON input
+[2026-06-16 18:15:05] [INFO] 基金数据采集完成，共获取 40 条有效数据，耗时 4507ms
+[2026-06-16 18:15:05] [INFO] 定时数据刷新成功完成
+[2026-06-16 18:20:20] [INFO] QDII基金溢价率查看服务已启动
+[2026-06-16 18:20:20] [INFO] 访问地址: http://localhost:3000
+[2026-06-16 18:20:20] [INFO] API文档地址: http://localhost:3000/api/status
+[2026-06-16 18:20:20] [INFO] 启动首次数据采集...
+[2026-06-16 18:20:20] [INFO] 开始采集基金数据...
+[2026-06-16 18:20:20] [INFO] 加载跨境ETF列表，共 64 只
+[2026-06-16 18:20:20] [INFO] 定时任务已启动，执行频率: */15 * * * *（每15分钟一次）
+[2026-06-16 18:20:21] [ERROR] 解析基金列表数据失败: Expected property name or '}' in JSON at position 1
+[2026-06-16 18:20:21] [ERROR] 获取QDII基金列表失败: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 18:20:21] [ERROR] 获取QDII基金列表失败，使用空列表: 基金列表数据格式异常: Expected property name or '}' in JSON at position 1
+[2026-06-16 18:20:21] [INFO] 共需采集 64 只基金数据
+[2026-06-16 18:20:21] [INFO] 批量获取行情成功，共 64/64 只基金有价格数据
+[2026-06-16 18:20:21] [WARN] 获取基金 513050 净值失败: Unexpected end of JSON input
+[2026-06-16 18:20:21] [WARN] 获取基金 164906 净值失败: Unexpected end of JSON input
+[2026-06-16 18:20:21] [WARN] 获取基金 159605 净值失败: Unexpected end of JSON input
+[2026-06-16 18:20:21] [WARN] 获取基金 513530 净值失败: Unexpected end of JSON input
+[2026-06-16 18:20:21] [WARN] 获取基金 513140 净值失败: Unexpected end of JSON input
+[2026-06-16 18:20:22] [WARN] 获取基金 159822 净值失败: Unexpected end of JSON input
+[2026-06-16 18:20:22] [WARN] 获取基金 513630 净值失败: Unexpected end of JSON input
+[2026-06-16 18:20:22] [WARN] 获取基金 159131 净值失败: Unexpected end of JSON input
+[2026-06-16 18:20:22] [WARN] 获取基金 513520 净值失败: Unexpected end of JSON input
+[2026-06-16 18:20:22] [WARN] 获取基金 513800 净值失败: Unexpected end of JSON input
+[2026-06-16 18:20:22] [WARN] 请求失败（第1次）: https://fundgz.1234567.com.cn/js/159865.js，错误: Request failed with status code 514
+[2026-06-16 18:20:22] [WARN] 请求失败（第1次）: https://fundgz.1234567.com.cn/js/159611.js，错误: Request failed with status code 514
+[2026-06-16 18:20:22] [WARN] 请求失败（第1次）: https://fundgz.1234567.com.cn/js/159712.js，错误: Request failed with status code 514
+[2026-06-16 18:20:22] [WARN] 获取基金 513030 净值失败: Unexpected end of JSON input
+[2026-06-16 18:20:22] [WARN] 获取基金 159561 净值失败: Unexpected end of JSON input
+[2026-06-16 18:20:23] [WARN] 获取基金 159329 净值失败: Unexpected end of JSON input
+[2026-06-16 18:20:23] [WARN] 获取基金 513730 净值失败: Unexpected end of JSON input
+[2026-06-16 18:20:23] [WARN] 获取基金 520580 净值失败: Unexpected end of JSON input
+[2026-06-16 18:20:23] [WARN] 获取基金 159687 净值失败: Unexpected end of JSON input
+[2026-06-16 18:20:23] [WARN] 获取基金 513360 净值失败: Unexpected end of JSON input
+[2026-06-16 18:20:23] [WARN] 获取基金 513310 净值失败: Unexpected end of JSON input
+[2026-06-16 18:20:23] [INFO] 基金数据采集完成，共获取 46 条有效数据，耗时 2620ms
+[2026-06-16 18:20:23] [INFO] 定时数据刷新成功完成

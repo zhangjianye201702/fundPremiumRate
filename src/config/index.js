@@ -11,15 +11,17 @@ module.exports = {
   CRON_EXPRESSION: '*/15 * * * *',
   // HTTP 请求超时时间（毫秒）
   REQUEST_TIMEOUT: 10000,
-  // 数据源配置 - 东方财富网
+  // 数据源配置
   DATA_SOURCES: {
     EASTMONEY: {
-      // 基金列表接口（获取QDII基金及ETF基金代码列表）
+      // 基金列表接口（获取QDII基金代码列表）
       fundListUrl: 'https://fundapi.eastmoney.com/fundtradenew.aspx',
       // 基金详情接口（获取基金净值数据）
-      fundDetailUrl: 'https://fundgz.1234567.com.cn/js',
-      // 场内基金实时行情接口（获取ETF等场内交易价格）
-      quoteUrl: 'https://push2.eastmoney.com/api/qt/stock/get'
+      fundDetailUrl: 'https://fundgz.1234567.com.cn/js'
+    },
+    // 腾讯行情接口（获取场内ETF实时交易价格，稳定可靠）
+    TENCENT: {
+      quoteUrl: 'https://qt.gtimg.cn/q'
     }
   },
   // 日志配置

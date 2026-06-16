@@ -35,11 +35,13 @@
     <div class="filter-group">
       <label for="sortBy">排序：</label>
       <select id="sortBy" class="select">
-        <option value="premiumRate">溢价率</option>
+        <option value="estimatedPremiumRate">T日估算溢价率</option>
+        <option value="premiumRate">T-1溢价率</option>
         <option value="changeRate">涨跌幅</option>
         <option value="fundName">基金名称</option>
         <option value="marketPrice">市场价格</option>
-        <option value="nav">基金净值</option>
+        <option value="nav">T-1净值</option>
+        <option value="estimatedNav">T日估值</option>
       </select>
       <select id="sortOrder" class="select">
         <option value="desc">降序</option>
@@ -88,8 +90,10 @@
           <th class="col-name">基金名称</th>
           <th class="col-type">类型</th>
           <th class="col-price sortable" data-sort="marketPrice">市场价格(元) <span class="sort-icon"></span></th>
-          <th class="col-nav sortable" data-sort="nav">基金净值(元) <span class="sort-icon"></span></th>
-          <th class="col-premium sortable" data-sort="premiumRate">溢价率 <span class="sort-icon"></span></th>
+          <th class="col-nav sortable" data-sort="nav">T-1净值(元) <span class="sort-icon"></span></th>
+          <th class="col-estnav sortable" data-sort="estimatedNav">T日估值(元) <span class="sort-icon"></span></th>
+          <th class="col-premium sortable" data-sort="premiumRate">T-1溢价率 <span class="sort-icon"></span></th>
+          <th class="col-estpremium sortable" data-sort="estimatedPremiumRate">T日估算溢价率 <span class="sort-icon"></span></th>
           <th class="col-change sortable" data-sort="changeRate">涨跌幅 <span class="sort-icon"></span></th>
           <th class="col-volume">成交额(万)</th>
           <th class="col-risk">风险等级</th>

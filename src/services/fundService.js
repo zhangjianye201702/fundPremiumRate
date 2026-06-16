@@ -14,7 +14,7 @@ let lastUpdateTime = null;
 
 /**
  * 获取所有基金数据（QDII + 跨境ETF）
- * 并发采集净值和市场价格，计算溢价率
+ * 先批量获取场内基金行情价格，再逐个获取净值，计算溢价率
  * @returns {Promise<Array>} 完整的基金溢价率数据列表
  */
 async function fetchAllFundData() {
@@ -39,14 +39,19 @@ async function fetchAllFundData() {
 
     logger.info(`共需采集 ${allFunds.length} 只基金数据`);
 
-    // 分批并发获取净值和价格（避免请求过多）
-    const batchSize = 10;
+    // 第一步：批量获取所有场内基金（有 exchange 字段）的实时行情价格
+    // 使用批量接口一次请求获取所有价格，避免频繁请求触发反爬
+    const tradableFunds = allFunds.filter(f => f.exchange);
+    const priceMap = await dataFetcher.fetchMarketPricesBatch(tradableFunds);
+
+    // 第二步：分批获取基金净值，并组合价格数据计算溢价率
+    const batchSize = 5; // 净值接口需逐个请求，降低并发数避免反爬
     const results = [];
 
     for (let i = 0; i < allFunds.length; i += batchSize) {
       const batch = allFunds.slice(i, i + batchSize);
       const batchResults = await Promise.all(
-        batch.map(fund => processSingleFund(fund))
+        batch.map(fund => processSingleFund(fund, priceMap))
       );
       results.push(...batchResults.filter(r => r !== null));
     }
@@ -66,11 +71,12 @@ async function fetchAllFundData() {
 }
 
 /**
- * 处理单只基金：获取净值和价格，计算溢价率
+ * 处理单只基金：获取净值并组合已批量获取的价格，计算溢价率
  * @param {object} fund - 基金基本信息
+ * @param {Map<string, object>} priceMap - 批量获取的行情价格映射
  * @returns {Promise<object|null>} 处理后的基金数据，失败返回 null
  */
-async function processSingleFund(fund) {
+async function processSingleFund(fund, priceMap) {
   try {
     // 获取基金净值
     const navData = await dataFetcher.fetchFundNAV(fund.fundCode);
@@ -78,10 +84,10 @@ async function processSingleFund(fund) {
       return null;
     }
 
-    // 获取市场价格（场内基金才有）
+    // 从批量价格映射中获取市场价格（场内基金才有）
     let priceData = null;
-    if (fund.exchange) {
-      priceData = await dataFetcher.fetchMarketPrice(fund.fundCode, fund.exchange);
+    if (fund.exchange && priceMap) {
+      priceData = priceMap.get(fund.fundCode) || null;
     }
 
     // 构建基金数据对象
@@ -89,13 +95,16 @@ async function processSingleFund(fund) {
       fundCode: fund.fundCode,
       fundName: fund.fundName,
       fundType: fund.fundType,
-      // 优先使用估算净值（更实时），无则用最新净值
-      nav: navData.estimatedNav || navData.nav,
-      navTime: navData.estimatedTime || navData.navTime,
-      // 市场价格（场内基金）
+      // T-1 实际净值（基金公司公布的上一交易日单位净值）
+      nav: navData.nav,
+      navTime: navData.navTime,
+      // T日 估算净值（盘中实时估算，反映海外市场最新涨跌）
+      estimatedNav: navData.estimatedNav,
+      estimatedNavTime: navData.estimatedTime,
+      // 市场价格（场内基金实时交易价格）
       marketPrice: priceData ? priceData.price : null,
       marketPriceTime: lastUpdateTime ? lastUpdateTime.toISOString() : new Date().toISOString(),
-      // 涨跌幅
+      // 涨跌幅：优先用场内涨跌幅，场外基金用净值涨跌幅
       changeRate: priceData ? priceData.changeRate : navData.growthRate,
       // 交易信息
       volume: priceData ? priceData.volume : null,
@@ -109,13 +118,24 @@ async function processSingleFund(fund) {
       return null;
     }
 
-    // 计算溢价率（只有同时有价格和净值时才能计算）
+    // 计算 T-1 溢价率：基于实际净值（确定的，但有时滞）
     if (fundData.marketPrice !== null && fundData.nav) {
       fundData.premiumRate = calculatePremiumRate(fundData.marketPrice, fundData.nav);
-      fundData.riskLevel = getRiskLevel(fundData.premiumRate);
     } else {
       fundData.premiumRate = null;
-      fundData.riskLevel = 'unknown';
+    }
+
+    // 计算 T日 估算溢价率：基于估算净值（更实时，反映海外最新行情）
+    if (fundData.marketPrice !== null && fundData.estimatedNav) {
+      fundData.estimatedPremiumRate = calculatePremiumRate(fundData.marketPrice, fundData.estimatedNav);
+      // 风险等级以估算溢价率为准（更接近真实水平）
+      fundData.riskLevel = getRiskLevel(fundData.estimatedPremiumRate);
+    } else {
+      fundData.estimatedPremiumRate = null;
+      // 估算溢价率无法计算时，回退用T-1溢价率判定风险
+      fundData.riskLevel = fundData.premiumRate !== null
+        ? getRiskLevel(fundData.premiumRate)
+        : 'unknown';
     }
 
     return fundData;
@@ -129,7 +149,7 @@ async function processSingleFund(fund) {
  * 获取缓存的基金数据（带筛选和排序）
  * @param {object} options - 筛选和排序选项
  * @param {string} options.fundType - 基金类型筛选（QDII/ETF/LOF/ALL）
- * @param {string} options.sortBy - 排序字段（premiumRate/changeRate/fundName）
+ * @param {string} options.sortBy - 排序字段（premiumRate/estimatedPremiumRate/changeRate/fundName）
  * @param {string} options.sortOrder - 排序顺序（asc/desc）
  * @param {number} options.minPremium - 最低溢价率筛选
  * @param {number} options.maxPremium - 最高溢价率筛选

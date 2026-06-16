@@ -6,7 +6,7 @@
 // 全局状态：当前筛选和排序参数
 let currentFilters = {
   fundType: 'ALL',
-  sortBy: 'premiumRate',
+  sortBy: 'estimatedPremiumRate',
   sortOrder: 'desc',
   minPremium: '',
   maxPremium: '',
@@ -145,12 +145,20 @@ function renderTable(funds) {
   emptyState.style.display = 'none';
 
   tbody.innerHTML = funds.map(fund => {
-    // 溢价率样式：正溢价红色，负溢价（折价）绿色
+    // T-1 溢价率样式：正溢价红色，负溢价（折价）绿色
     let premiumClass = 'premium-null';
     let premiumText = '--';
     if (fund.premiumRate !== null && fund.premiumRate !== undefined) {
       premiumClass = fund.premiumRate >= 0 ? 'premium-positive' : 'premium-negative';
       premiumText = (fund.premiumRate >= 0 ? '+' : '') + fund.premiumRate.toFixed(2) + '%';
+    }
+
+    // T日 估算溢价率样式
+    let estPremiumClass = 'premium-null';
+    let estPremiumText = '--';
+    if (fund.estimatedPremiumRate !== null && fund.estimatedPremiumRate !== undefined) {
+      estPremiumClass = fund.estimatedPremiumRate >= 0 ? 'premium-positive' : 'premium-negative';
+      estPremiumText = (fund.estimatedPremiumRate >= 0 ? '+' : '') + fund.estimatedPremiumRate.toFixed(2) + '%';
     }
 
     // 涨跌幅样式
@@ -173,9 +181,10 @@ function renderTable(funds) {
     // 基金类型标签
     const typeClass = `type-${fund.fundType}`;
 
-    // 市场价格和净值显示
+    // 市场价格、T-1净值、T日估值显示
     const priceText = fund.marketPrice !== null ? fund.marketPrice.toFixed(4) : '--';
     const navText = fund.nav ? fund.nav.toFixed(4) : '--';
+    const estNavText = fund.estimatedNav ? fund.estimatedNav.toFixed(4) : '--';
 
     // 成交额显示（转换为万元）
     let volumeText = '--';
@@ -190,7 +199,9 @@ function renderTable(funds) {
         <td><span class="type-badge ${typeClass}">${fund.fundType}</span></td>
         <td>${priceText}</td>
         <td>${navText}</td>
+        <td>${estNavText}</td>
         <td class="${premiumClass}">${premiumText}</td>
+        <td class="${estPremiumClass}">${estPremiumText}</td>
         <td class="${changeClass}">${changeText}</td>
         <td>${volumeText}</td>
         <td><span class="risk-badge ${risk.class}">${risk.text}</span></td>
