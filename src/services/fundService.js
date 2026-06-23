@@ -1,69 +1,46 @@
 /**
  * 基金服务模块
- * 整合数据采集与溢价率计算，提供统一的数据查询接口
- * 支持按基金类型、溢价率等条件筛选和排序
+ * ==================================
+ * 整合数据采集与缓存，提供统一的基金溢价率查询接口。
+ * 数据采集委托给 dataFetcher（Python 桥接层），本模块负责缓存管理、筛选与排序。
+ *
+ * 数据范围：主要投资国外的 LOF 与 ETF 基金（跨境品种），
+ * 溢价率基于 AkShare 提供的 IOPV 实时估值与场内最新价计算。
  */
 const dataFetcher = require('./dataFetcher');
-const { calculatePremiumRate, getRiskLevel, validateFundData } = require('./premiumCalculator');
 const logger = require('../utils/logger');
 
-// 内存缓存：存储所有基金数据
+// 内存缓存：存储所有基金数据（由 Python 采集脚本写入，Node 读取后缓存）
 let fundDataCache = [];
-// 最后更新时间
+// 最后更新时间（取自 Python 输出的 JSON，反映数据采集时刻）
 let lastUpdateTime = null;
 
 /**
- * 获取所有基金数据（QDII + 跨境ETF）
- * 先批量获取场内基金行情价格，再逐个获取净值，计算溢价率
- * @returns {Promise<Array>} 完整的基金溢价率数据列表
+ * 触发一次完整的数据采集
+ * 调用 Python 脚本（AkShare）获取跨境 LOF/ETF 行情，结果写入 JSON 文件后载入缓存
+ *
+ * @returns {Promise<Array>} 采集到的基金数据列表
+ * @throws {Error} 采集过程失败时抛出（如 Python 脚本异常、数据文件不可读）
  */
 async function fetchAllFundData() {
-  logger.info('开始采集基金数据...');
+  logger.info('开始采集基金数据（AkShare）...');
   const startTime = Date.now();
 
   try {
-    // 并发获取QDII基金列表和跨境ETF列表
-    const [qdiiFunds, etfFunds] = await Promise.all([
-      dataFetcher.fetchQDIIFundList().catch(err => {
-        logger.error(`获取QDII基金列表失败，使用空列表: ${err.message}`);
-        return [];
-      }),
-      dataFetcher.fetchCrossBorderETFList()
-    ]);
+    // 确保数据输出目录存在（首次运行时创建）
+    dataFetcher.ensureDataDir();
 
-    // 合并基金列表，ETF数据补充交易所信息
-    const allFunds = [
-      ...qdiiFunds.map(f => ({ ...f, exchange: null })),
-      ...etfFunds
-    ];
+    // 调用 Python 脚本采集数据，内部会等待脚本完成并读取结果文件
+    const result = await dataFetcher.runPythonFetcher();
 
-    logger.info(`共需采集 ${allFunds.length} 只基金数据`);
-
-    // 第一步：批量获取所有场内基金（有 exchange 字段）的实时行情价格
-    // 使用批量接口一次请求获取所有价格，避免频繁请求触发反爬
-    const tradableFunds = allFunds.filter(f => f.exchange);
-    const priceMap = await dataFetcher.fetchMarketPricesBatch(tradableFunds);
-
-    // 第二步：分批获取基金净值，并组合价格数据计算溢价率
-    const batchSize = 5; // 净值接口需逐个请求，降低并发数避免反爬
-    const results = [];
-
-    for (let i = 0; i < allFunds.length; i += batchSize) {
-      const batch = allFunds.slice(i, i + batchSize);
-      const batchResults = await Promise.all(
-        batch.map(fund => processSingleFund(fund, priceMap))
-      );
-      results.push(...batchResults.filter(r => r !== null));
-    }
-
-    // 更新缓存
-    fundDataCache = results;
-    lastUpdateTime = new Date();
+    // 更新内存缓存
+    fundDataCache = result.data || [];
+    lastUpdateTime = result.updateTime || dataFetcher.getDataFileMtime();
 
     const duration = Date.now() - startTime;
-    logger.info(`基金数据采集完成，共获取 ${results.length} 条有效数据，耗时 ${duration}ms`);
+    logger.info(`基金数据采集完成，共 ${fundDataCache.length} 条，耗时 ${duration}ms`);
 
-    return results;
+    return fundDataCache;
   } catch (error) {
     logger.error(`基金数据采集失败: ${error.message}`);
     throw error;
@@ -71,100 +48,48 @@ async function fetchAllFundData() {
 }
 
 /**
- * 处理单只基金：获取净值并组合已批量获取的价格，计算溢价率
- * @param {object} fund - 基金基本信息
- * @param {Map<string, object>} priceMap - 批量获取的行情价格映射
- * @returns {Promise<object|null>} 处理后的基金数据，失败返回 null
+ * 从数据文件重新载入缓存（不触发采集）
+ * 用于服务启动时若已有历史数据文件，可直接载入供前端展示，无需等待采集
+ *
+ * @returns {boolean} 是否成功载入
  */
-async function processSingleFund(fund, priceMap) {
+function loadFromDataFile() {
   try {
-    // 获取基金净值
-    const navData = await dataFetcher.fetchFundNAV(fund.fundCode);
-    if (!navData) {
-      return null;
-    }
-
-    // 从批量价格映射中获取市场价格（场内基金才有）
-    let priceData = null;
-    if (fund.exchange && priceMap) {
-      priceData = priceMap.get(fund.fundCode) || null;
-    }
-
-    // 构建基金数据对象
-    const fundData = {
-      fundCode: fund.fundCode,
-      fundName: fund.fundName,
-      fundType: fund.fundType,
-      // T-1 实际净值（基金公司公布的上一交易日单位净值）
-      nav: navData.nav,
-      navTime: navData.navTime,
-      // T日 估算净值（盘中实时估算，反映海外市场最新涨跌）
-      estimatedNav: navData.estimatedNav,
-      estimatedNavTime: navData.estimatedTime,
-      // 市场价格（场内基金实时交易价格）
-      marketPrice: priceData ? priceData.price : null,
-      marketPriceTime: lastUpdateTime ? lastUpdateTime.toISOString() : new Date().toISOString(),
-      // 涨跌幅：优先用场内涨跌幅，场外基金用净值涨跌幅
-      changeRate: priceData ? priceData.changeRate : navData.growthRate,
-      // 交易信息
-      volume: priceData ? priceData.volume : null,
-      amount: priceData ? priceData.amount : null
-    };
-
-    // 数据格式校验
-    const validation = validateFundData(fundData);
-    if (!validation.isValid) {
-      logger.warn(`基金 ${fund.fundCode} 数据校验失败: ${validation.errors.join(', ')}`);
-      return null;
-    }
-
-    // 计算 T-1 溢价率：基于实际净值（确定的，但有时滞）
-    if (fundData.marketPrice !== null && fundData.nav) {
-      fundData.premiumRate = calculatePremiumRate(fundData.marketPrice, fundData.nav);
-    } else {
-      fundData.premiumRate = null;
-    }
-
-    // 计算 T日 估算溢价率：基于估算净值（更实时，反映海外最新行情）
-    if (fundData.marketPrice !== null && fundData.estimatedNav) {
-      fundData.estimatedPremiumRate = calculatePremiumRate(fundData.marketPrice, fundData.estimatedNav);
-      // 风险等级以估算溢价率为准（更接近真实水平）
-      fundData.riskLevel = getRiskLevel(fundData.estimatedPremiumRate);
-    } else {
-      fundData.estimatedPremiumRate = null;
-      // 估算溢价率无法计算时，回退用T-1溢价率判定风险
-      fundData.riskLevel = fundData.premiumRate !== null
-        ? getRiskLevel(fundData.premiumRate)
-        : 'unknown';
-    }
-
-    return fundData;
-  } catch (error) {
-    logger.warn(`处理基金 ${fund.fundCode} 失败: ${error.message}`);
-    return null;
+    const result = dataFetcher.readDataFile();
+    fundDataCache = result.data || [];
+    lastUpdateTime = result.updateTime || dataFetcher.getDataFileMtime();
+    logger.info(`从数据文件载入缓存成功，共 ${fundDataCache.length} 条数据`);
+    return true;
+  } catch (e) {
+    logger.warn(`数据文件不可用，首次需等待采集: ${e.message}`);
+    return false;
   }
 }
 
 /**
- * 获取缓存的基金数据（带筛选和排序）
+ * 获取缓存的基金数据（带筛选、排序和分页）
+ * 所有筛选/排序均在 Node 端完成，基于已缓存的 Python 采集结果
+ *
  * @param {object} options - 筛选和排序选项
- * @param {string} options.fundType - 基金类型筛选（QDII/ETF/LOF/ALL）
- * @param {string} options.sortBy - 排序字段（premiumRate/estimatedPremiumRate/changeRate/fundName）
+ * @param {string} options.fundType - 基金类型筛选（ETF/LOF/ALL）
+ * @param {string} options.sortBy - 排序字段（premiumRate/estimatedPremiumRate/changeRate/fundName/marketPrice/nav/estimatedNav）
  * @param {string} options.sortOrder - 排序顺序（asc/desc）
  * @param {number} options.minPremium - 最低溢价率筛选
  * @param {number} options.maxPremium - 最高溢价率筛选
  * @param {string} options.keyword - 关键词搜索（基金代码或名称）
- * @returns {object} { data: Array, total: number, updateTime: string }
+ * @param {number} options.page - 页码（从1开始），不传或 ≤0 表示不分页（返回全部）
+ * @param {number} options.pageSize - 每页条数，默认 10
+ * @returns {object} { data: Array, total: number, updateTime: string, page?, pageSize?, totalPages? }
  */
 function getCachedFundData(options = {}) {
   let data = [...fundDataCache];
 
-  // 按基金类型筛选
+  // 按基金类型筛选（跨境品种仅有 ETF 与 LOF 两类）
   if (options.fundType && options.fundType !== 'ALL') {
     data = data.filter(f => f.fundType === options.fundType);
   }
 
-  // 关键词搜索
+  // 关键词搜索（匹配基金代码或名称，大小写不敏感）
   if (options.keyword) {
     const kw = options.keyword.toLowerCase();
     data = data.filter(f =>
@@ -174,45 +99,86 @@ function getCachedFundData(options = {}) {
   }
 
   // 按溢价率范围筛选
+  // 说明：优先以「T日实时溢价率(estimatedPremiumRate)」为准，缺失时回退「T-1溢价率(premiumRate)」
   if (options.minPremium !== undefined && options.minPremium !== null) {
-    data = data.filter(f => f.premiumRate !== null && f.premiumRate >= options.minPremium);
+    data = data.filter(f => {
+      const v = f.estimatedPremiumRate !== null && f.estimatedPremiumRate !== undefined
+        ? f.estimatedPremiumRate
+        : f.premiumRate;
+      return v !== null && v !== undefined && v >= options.minPremium;
+    });
   }
   if (options.maxPremium !== undefined && options.maxPremium !== null) {
-    data = data.filter(f => f.premiumRate !== null && f.premiumRate <= options.maxPremium);
+    data = data.filter(f => {
+      const v = f.estimatedPremiumRate !== null && f.estimatedPremiumRate !== undefined
+        ? f.estimatedPremiumRate
+        : f.premiumRate;
+      return v !== null && v !== undefined && v <= options.maxPremium;
+    });
   }
 
-  // 排序
-  const sortBy = options.sortBy || 'premiumRate';
+  // 排序：默认按 T 日实时溢价率降序
+  const sortBy = options.sortBy || 'estimatedPremiumRate';
   const sortOrder = options.sortOrder || 'desc';
   data.sort((a, b) => {
     let valA = a[sortBy];
     let valB = b[sortBy];
-    // null 值排到最后
-    if (valA === null) return 1;
-    if (valB === null) return -1;
+    // null/undefined 值统一排到最后（无论升降序）
+    if (valA === null || valA === undefined) return 1;
+    if (valB === null || valB === undefined) return -1;
+    // 字符串字段（如基金名称）按 localeCompare 排序
     if (typeof valA === 'string') {
       return sortOrder === 'asc' ? valA.localeCompare(valB) : valB.localeCompare(valA);
     }
+    // 数值字段
     return sortOrder === 'asc' ? valA - valB : valB - valA;
   });
 
+  // total 为筛选+排序后的总条数（分页前）
+  const total = data.length;
+
+  // 分页处理：page > 0 时启用分页，否则返回全部数据
+  const page = parseInt(options.page);
+  const pageSize = parseInt(options.pageSize) > 0 ? parseInt(options.pageSize) : 10;
+  const usePaging = !isNaN(page) && page > 0;
+
+  if (usePaging) {
+    // 计算总页数（向上取整，total 为 0 时为 0 页）
+    const totalPages = total > 0 ? Math.ceil(total / pageSize) : 0;
+    // 越界页码保护：page 超出总页数时返回最后一页（或空）
+    const safePage = Math.min(page, Math.max(totalPages, 1));
+    const startIndex = (safePage - 1) * pageSize;
+    const pagedData = data.slice(startIndex, startIndex + pageSize);
+
+    return {
+      data: pagedData,
+      total,
+      updateTime: lastUpdateTime,
+      page: safePage,
+      pageSize,
+      totalPages
+    };
+  }
+
+  // 不分页：返回全部
   return {
     data,
-    total: data.length,
-    updateTime: lastUpdateTime ? lastUpdateTime.toISOString() : null
+    total,
+    updateTime: lastUpdateTime
   };
 }
 
 /**
  * 获取最后更新时间
- * @returns {string|null} ISO 格式时间
+ * @returns {string|null} ISO 格式时间字符串，无数据时返回 null
  */
 function getLastUpdateTime() {
-  return lastUpdateTime ? lastUpdateTime.toISOString() : null;
+  return lastUpdateTime;
 }
 
 module.exports = {
   fetchAllFundData,
+  loadFromDataFile,
   getCachedFundData,
   getLastUpdateTime
 };

@@ -26,22 +26,26 @@ app.use(express.static(path.join(__dirname, '../public')));
  * 支持筛选和排序参数
  * GET /api/funds
  * 查询参数:
- *   - fundType: 基金类型（QDII/ETF/LOF/ALL），默认 ALL
- *   - sortBy: 排序字段（premiumRate/changeRate/fundName），默认 premiumRate
+ *   - fundType: 基金类型（ETF/LOF/ALL），默认 ALL
+ *   - sortBy: 排序字段（estimatedPremiumRate/premiumRate/changeRate/fundName/marketPrice/nav/estimatedNav），默认 estimatedPremiumRate
  *   - sortOrder: 排序顺序（asc/desc），默认 desc
  *   - minPremium: 最低溢价率（数字）
  *   - maxPremium: 最高溢价率（数字）
  *   - keyword: 关键词（基金代码或名称）
+ *   - page: 页码（从1开始），不传则返回全部
+ *   - pageSize: 每页条数，默认 20
  */
 app.get('/api/funds', (req, res) => {
   try {
     const options = {
       fundType: req.query.fundType || 'ALL',
-      sortBy: req.query.sortBy || 'premiumRate',
+      sortBy: req.query.sortBy || 'estimatedPremiumRate',
       sortOrder: req.query.sortOrder || 'desc',
       minPremium: req.query.minPremium !== undefined ? parseFloat(req.query.minPremium) : undefined,
       maxPremium: req.query.maxPremium !== undefined ? parseFloat(req.query.maxPremium) : undefined,
-      keyword: req.query.keyword || ''
+      keyword: req.query.keyword || '',
+      page: req.query.page !== undefined ? parseInt(req.query.page) : undefined,
+      pageSize: req.query.pageSize !== undefined ? parseInt(req.query.pageSize) : undefined
     };
 
     // 参数校验
@@ -115,11 +119,11 @@ app.use((err, req, res, next) => {
  * 启动服务器
  */
 const server = app.listen(config.PORT, () => {
-  logger.info(`QDII基金溢价率查看服务已启动`);
+  logger.info(`跨境基金溢价率查看服务已启动（数据源：AkShare）`);
   logger.info(`访问地址: http://localhost:${config.PORT}`);
   logger.info(`API文档地址: http://localhost:${config.PORT}/api/status`);
 
-  // 启动定时任务，自动每15分钟刷新数据
+  // 启动定时任务，自动每15分钟刷新数据（调用 AkShare 采集脚本）
   scheduler.startScheduledTask();
 });
 

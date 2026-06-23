@@ -450,3 +450,201 @@
 [2026-06-16 18:20:23] [WARN] 获取基金 513310 净值失败: Unexpected end of JSON input
 [2026-06-16 18:20:23] [INFO] 基金数据采集完成，共获取 46 条有效数据，耗时 2620ms
 [2026-06-16 18:20:23] [INFO] 定时数据刷新成功完成
+[2026-06-17 15:53:05] [INFO] 跨境基金溢价率查看服务已启动（数据源：AkShare）
+[2026-06-17 15:53:05] [INFO] 访问地址: http://localhost:3000
+[2026-06-17 15:53:05] [INFO] API文档地址: http://localhost:3000/api/status
+[2026-06-17 15:53:05] [INFO] 从数据文件载入缓存成功，共 255 条数据
+[2026-06-17 15:53:05] [INFO] 已载入历史数据，前端可立即访问
+[2026-06-17 15:53:05] [INFO] 启动首次数据采集（AkShare）...
+[2026-06-17 15:53:05] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-17 15:53:05] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-17 15:53:05] [INFO] 定时任务已启动，执行频率: */15 * * * *（每15分钟一次）
+[2026-06-17 15:54:05] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-17 15:54:05] [INFO] 基金数据采集完成，共 255 条，耗时 59658ms
+[2026-06-17 15:54:05] [INFO] 定时数据刷新成功完成
+[2026-06-17 15:58:24] [INFO] 收到手动刷新请求
+[2026-06-17 15:58:24] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-17 15:58:24] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-17 15:59:26] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-17 15:59:26] [INFO] 基金数据采集完成，共 255 条，耗时 61864ms
+[2026-06-17 16:00:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/17 16:00:00]
+[2026-06-17 16:00:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-17 16:00:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-17 16:00:47] [INFO] 跨境基金溢价率查看服务已启动（数据源：AkShare）
+[2026-06-17 16:00:47] [INFO] 访问地址: http://localhost:3000
+[2026-06-17 16:00:47] [INFO] API文档地址: http://localhost:3000/api/status
+[2026-06-17 16:00:47] [INFO] 从数据文件载入缓存成功，共 255 条数据
+[2026-06-17 16:00:47] [INFO] 已载入历史数据，前端可立即访问
+[2026-06-17 16:00:47] [INFO] 启动首次数据采集（AkShare）...
+[2026-06-17 16:00:47] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-17 16:00:47] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-17 16:00:47] [INFO] 定时任务已启动，执行频率: */15 * * * *（每15分钟一次）
+[2026-06-17 16:01:47] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-17 16:01:47] [INFO] 基金数据采集完成，共 255 条，耗时 60292ms
+[2026-06-17 16:01:47] [INFO] 定时数据刷新成功完成
+[2026-06-17 16:03:43] [INFO] 收到手动刷新请求
+[2026-06-17 16:03:43] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-17 16:03:43] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-17 16:04:40] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-17 16:04:40] [INFO] 基金数据采集完成，共 255 条，耗时 57451ms
+[2026-06-17 16:15:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/17 16:15:00]
+[2026-06-17 16:15:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-17 16:15:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-17 16:16:01] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-17 16:16:01] [INFO] 基金数据采集完成，共 255 条，耗时 61543ms
+[2026-06-17 16:16:01] [INFO] 定时数据刷新成功完成
+[2026-06-17 16:30:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/17 16:30:00]
+[2026-06-17 16:30:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-17 16:30:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-17 16:31:01] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-17 16:31:01] [INFO] 基金数据采集完成，共 255 条，耗时 61603ms
+[2026-06-17 16:31:01] [INFO] 定时数据刷新成功完成
+[2026-06-17 16:45:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/17 16:45:00]
+[2026-06-17 16:45:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-17 16:45:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-17 16:46:34] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-17 16:46:34] [INFO] 基金数据采集完成，共 255 条，耗时 93083ms
+[2026-06-17 16:46:34] [INFO] 定时数据刷新成功完成
+[2026-06-17 17:00:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/17 17:00:00]
+[2026-06-17 17:00:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-17 17:00:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-17 17:01:30] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-17 17:01:30] [INFO] 基金数据采集完成，共 255 条，耗时 90523ms
+[2026-06-17 17:01:30] [INFO] 定时数据刷新成功完成
+[2026-06-17 17:15:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/17 17:15:00]
+[2026-06-17 17:15:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-17 17:15:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-17 17:16:09] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-17 17:16:09] [INFO] 基金数据采集完成，共 255 条，耗时 68201ms
+[2026-06-17 17:16:09] [INFO] 定时数据刷新成功完成
+[2026-06-17 17:30:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/17 17:30:00]
+[2026-06-17 17:30:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-17 17:30:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-17 17:30:57] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-17 17:30:57] [INFO] 基金数据采集完成，共 255 条，耗时 56568ms
+[2026-06-17 17:30:57] [INFO] 定时数据刷新成功完成
+[2026-06-17 17:45:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/17 17:45:00]
+[2026-06-17 17:45:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-17 17:45:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-17 17:46:02] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-17 17:46:02] [INFO] 基金数据采集完成，共 255 条，耗时 62716ms
+[2026-06-17 17:46:02] [INFO] 定时数据刷新成功完成
+[2026-06-17 18:00:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/17 18:00:00]
+[2026-06-17 18:00:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-17 18:00:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-17 18:01:02] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-17 18:01:02] [INFO] 基金数据采集完成，共 255 条，耗时 61459ms
+[2026-06-17 18:01:02] [INFO] 定时数据刷新成功完成
+[2026-06-22 14:38:53] [INFO] 跨境基金溢价率查看服务已启动（数据源：AkShare）
+[2026-06-22 14:38:53] [INFO] 访问地址: http://localhost:3000
+[2026-06-22 14:38:53] [INFO] API文档地址: http://localhost:3000/api/status
+[2026-06-22 14:38:53] [INFO] 从数据文件载入缓存成功，共 255 条数据
+[2026-06-22 14:38:53] [INFO] 已载入历史数据，前端可立即访问
+[2026-06-22 14:38:53] [INFO] 启动首次数据采集（AkShare）...
+[2026-06-22 14:38:53] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-22 14:38:53] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-22 14:38:54] [INFO] 定时任务已启动，执行频率: */15 * * * *（每15分钟一次）
+[2026-06-22 14:39:41] [INFO] Python 采集完成，共获取 292 条数据
+[2026-06-22 14:39:41] [INFO] 基金数据采集完成，共 292 条，耗时 47207ms
+[2026-06-22 14:39:41] [INFO] 定时数据刷新成功完成
+[2026-06-22 14:40:17] [INFO] 收到手动刷新请求
+[2026-06-22 14:40:17] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-22 14:40:17] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-22 14:40:58] [INFO] Python 采集完成，共获取 292 条数据
+[2026-06-22 14:40:58] [INFO] 基金数据采集完成，共 292 条，耗时 40748ms
+[2026-06-22 14:45:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/22 14:45:00]
+[2026-06-22 14:45:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-22 14:45:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-22 14:45:38] [INFO] Python 采集完成，共获取 292 条数据
+[2026-06-22 14:45:38] [INFO] 基金数据采集完成，共 292 条，耗时 37287ms
+[2026-06-22 14:45:38] [INFO] 定时数据刷新成功完成
+[2026-06-22 15:00:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/22 15:00:00]
+[2026-06-22 15:00:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-22 15:00:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-22 15:00:59] [INFO] Python 采集完成，共获取 292 条数据
+[2026-06-22 15:00:59] [INFO] 基金数据采集完成，共 292 条，耗时 58638ms
+[2026-06-22 15:00:59] [INFO] 定时数据刷新成功完成
+[2026-06-22 15:15:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/22 15:15:00]
+[2026-06-22 15:15:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-22 15:15:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-22 15:15:56] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-22 15:15:56] [INFO] 基金数据采集完成，共 255 条，耗时 55148ms
+[2026-06-22 15:15:56] [INFO] 定时数据刷新成功完成
+[2026-06-22 15:30:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/22 15:30:00]
+[2026-06-22 15:30:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-22 15:30:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-22 15:31:04] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-22 15:31:04] [INFO] 基金数据采集完成，共 255 条，耗时 63795ms
+[2026-06-22 15:31:04] [INFO] 定时数据刷新成功完成
+[2026-06-22 16:00:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/22 16:00:00]
+[2026-06-22 16:00:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-22 16:00:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-22 16:01:00] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-22 16:01:00] [INFO] 基金数据采集完成，共 255 条，耗时 59850ms
+[2026-06-22 16:01:00] [INFO] 定时数据刷新成功完成
+[2026-06-22 16:15:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/22 16:15:00]
+[2026-06-22 16:15:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-22 16:15:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-22 16:16:00] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-22 16:16:00] [INFO] 基金数据采集完成，共 255 条，耗时 59816ms
+[2026-06-22 16:16:00] [INFO] 定时数据刷新成功完成
+[2026-06-22 16:30:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/22 16:30:00]
+[2026-06-22 16:30:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-22 16:30:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-22 16:31:01] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-22 16:31:01] [INFO] 基金数据采集完成，共 255 条，耗时 60664ms
+[2026-06-22 16:31:01] [INFO] 定时数据刷新成功完成
+[2026-06-22 16:45:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/22 16:45:00]
+[2026-06-22 16:45:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-22 16:45:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-22 16:46:09] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-22 16:46:09] [INFO] 基金数据采集完成，共 255 条，耗时 69481ms
+[2026-06-22 16:46:09] [INFO] 定时数据刷新成功完成
+[2026-06-22 17:00:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/22 17:00:00]
+[2026-06-22 17:00:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-22 17:00:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-22 17:00:57] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-22 17:00:57] [INFO] 基金数据采集完成，共 255 条，耗时 57493ms
+[2026-06-22 17:00:57] [INFO] 定时数据刷新成功完成
+[2026-06-22 17:15:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/22 17:15:00]
+[2026-06-22 17:15:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-22 17:15:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-22 17:16:02] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-22 17:16:02] [INFO] 基金数据采集完成，共 255 条，耗时 62866ms
+[2026-06-22 17:16:02] [INFO] 定时数据刷新成功完成
+[2026-06-22 17:30:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/22 17:30:00]
+[2026-06-22 17:30:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-22 17:30:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-22 17:31:09] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-22 17:31:09] [INFO] 基金数据采集完成，共 255 条，耗时 69140ms
+[2026-06-22 17:31:09] [INFO] 定时数据刷新成功完成
+[2026-06-22 17:45:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/22 17:45:00]
+[2026-06-22 17:45:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-22 17:45:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-22 17:46:01] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-22 17:46:01] [INFO] 基金数据采集完成，共 255 条，耗时 61364ms
+[2026-06-22 17:46:01] [INFO] 定时数据刷新成功完成
+[2026-06-22 18:00:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/22 18:00:00]
+[2026-06-22 18:00:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-22 18:00:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-22 18:01:09] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-22 18:01:09] [INFO] 基金数据采集完成，共 255 条，耗时 68691ms
+[2026-06-22 18:01:09] [INFO] 定时数据刷新成功完成
+[2026-06-22 18:15:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/22 18:15:00]
+[2026-06-22 18:15:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-22 18:15:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-22 18:16:08] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-22 18:16:08] [INFO] 基金数据采集完成，共 255 条，耗时 67243ms
+[2026-06-22 18:16:08] [INFO] 定时数据刷新成功完成
+[2026-06-22 18:30:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/22 18:30:00]
+[2026-06-22 18:30:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-22 18:30:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-22 18:31:01] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-22 18:31:01] [INFO] 基金数据采集完成，共 255 条，耗时 60750ms
+[2026-06-22 18:31:01] [INFO] 定时数据刷新成功完成
+[2026-06-22 18:45:00] [INFO] 定时任务触发，执行数据刷新 [2026/6/22 18:45:00]
+[2026-06-22 18:45:00] [INFO] 开始采集基金数据（AkShare）...
+[2026-06-22 18:45:00] [INFO] 启动 Python 数据采集: py D:\myProject\fundPremiumRate\src\scripts\akshare_fetcher.py D:\myProject\fundPremiumRate\data\fund_data.json
+[2026-06-22 18:45:59] [INFO] Python 采集完成，共获取 255 条数据
+[2026-06-22 18:45:59] [INFO] 基金数据采集完成，共 255 条，耗时 58892ms
+[2026-06-22 18:45:59] [INFO] 定时数据刷新成功完成

@@ -3,14 +3,22 @@
  * 负责与后端API交互、数据渲染、筛选排序交互
  */
 
-// 全局状态：当前筛选和排序参数
+// 全局状态：当前筛选、排序和分页参数
 let currentFilters = {
   fundType: 'ALL',
   sortBy: 'estimatedPremiumRate',
   sortOrder: 'desc',
   minPremium: '',
   maxPremium: '',
-  keyword: ''
+  keyword: '',
+  page: 1,
+  pageSize: 10
+};
+
+// 分页元信息（由后端返回）
+let paginationMeta = {
+  total: 0,
+  totalPages: 0
 };
 
 /**
@@ -35,31 +43,37 @@ function bindEvents() {
 
   document.getElementById('fundTypeFilter').addEventListener('change', () => {
     currentFilters.fundType = document.getElementById('fundTypeFilter').value;
+    currentFilters.page = 1;  // 筛选变化重置到第1页
     fetchFundData();
   });
 
   document.getElementById('sortBy').addEventListener('change', () => {
     currentFilters.sortBy = document.getElementById('sortBy').value;
+    currentFilters.page = 1;
     fetchFundData();
   });
 
   document.getElementById('sortOrder').addEventListener('change', () => {
     currentFilters.sortOrder = document.getElementById('sortOrder').value;
+    currentFilters.page = 1;
     fetchFundData();
   });
 
   document.getElementById('minPremium').addEventListener('input', (e) => {
     currentFilters.minPremium = e.target.value;
+    currentFilters.page = 1;
     debouncedFetch();
   });
 
   document.getElementById('maxPremium').addEventListener('input', (e) => {
     currentFilters.maxPremium = e.target.value;
+    currentFilters.page = 1;
     debouncedFetch();
   });
 
   document.getElementById('keyword').addEventListener('input', (e) => {
     currentFilters.keyword = e.target.value;
+    currentFilters.page = 1;
     debouncedFetch();
   });
 
@@ -67,6 +81,40 @@ function bindEvents() {
   document.querySelectorAll('th.sortable').forEach(th => {
     th.addEventListener('click', () => handleSort(th.dataset.sort));
   });
+
+  // 分页控件事件
+  bindPaginationEvents();
+}
+
+/**
+ * 绑定分页控件事件
+ * 包括：首页/上一页/下一页/末页按钮、每页条数切换
+ */
+function bindPaginationEvents() {
+  // 上一页
+  document.getElementById('prevPageBtn').addEventListener('click', () => goToPage(currentFilters.page - 1));
+  // 下一页
+  document.getElementById('nextPageBtn').addEventListener('click', () => goToPage(currentFilters.page + 1));
+
+  // 每页条数切换：重置到第1页
+  document.getElementById('pageSizeSelect').addEventListener('change', (e) => {
+    currentFilters.pageSize = parseInt(e.target.value);
+    currentFilters.page = 1;
+    fetchFundData();
+  });
+}
+
+/**
+ * 跳转到指定页码
+ * @param {number} page - 目标页码（从1开始）
+ */
+function goToPage(page) {
+  // 边界保护
+  if (page < 1 || page > paginationMeta.totalPages) {
+    return;
+  }
+  currentFilters.page = page;
+  fetchFundData();
 }
 
 /**
@@ -86,6 +134,8 @@ function handleSort(field) {
   document.getElementById('sortBy').value = currentFilters.sortBy;
   document.getElementById('sortOrder').value = currentFilters.sortOrder;
 
+  // 排序变化时重置到第1页
+  currentFilters.page = 1;
   fetchFundData();
 }
 
@@ -108,6 +158,9 @@ async function fetchFundData() {
     if (currentFilters.keyword) {
       params.append('keyword', currentFilters.keyword);
     }
+    // 分页参数
+    params.append('page', currentFilters.page);
+    params.append('pageSize', currentFilters.pageSize);
 
     const response = await fetch(`/api/funds?${params.toString()}`);
     const result = await response.json();
@@ -116,8 +169,17 @@ async function fetchFundData() {
       throw new Error(result.message || '获取数据失败');
     }
 
+    // 保存分页元信息（后端返回）
+    paginationMeta.total = result.total || 0;
+    paginationMeta.totalPages = result.totalPages || 0;
+    // 后端可能对越界页码做了保护，回写实际页码
+    if (result.page) {
+      currentFilters.page = result.page;
+    }
+
     renderTable(result.data);
-    updateStats(result.data);
+    updateStats(result.data, result.total);
+    renderPagination();
     updateSortIcons();
 
     // 隐藏加载遮罩
@@ -213,12 +275,14 @@ function renderTable(funds) {
 
 /**
  * 更新统计数据
- * @param {Array} funds - 基金数据列表
+ * @param {Array} funds - 当前页基金数据列表（用于风险等级统计）
+ * @param {number} totalCount - 筛选后的基金总数（跨页）
  */
-function updateStats(funds) {
-  document.getElementById('totalCount').textContent = funds.length;
+function updateStats(funds, totalCount) {
+  // 总数显示筛选后的全部条数（而非当前页条数）
+  document.getElementById('totalCount').textContent = totalCount !== undefined ? totalCount : funds.length;
 
-  // 按风险等级统计
+  // 按风险等级统计（仅统计当前页，避免每次都请求全量数据）
   let highCount = 0, mediumCount = 0, lowCount = 0;
   funds.forEach(f => {
     if (f.riskLevel === 'high') highCount++;
@@ -229,6 +293,98 @@ function updateStats(funds) {
   document.getElementById('highRiskCount').textContent = highCount;
   document.getElementById('mediumRiskCount').textContent = mediumCount;
   document.getElementById('lowRiskCount').textContent = lowCount;
+}
+
+/**
+ * 渲染分页控件
+ * 包括：页码信息文本、页码按钮（带省略号）、首/上/下/末页按钮状态、每页条数回显
+ */
+function renderPagination() {
+  const { page, pageSize } = currentFilters;
+  const { total, totalPages } = paginationMeta;
+
+  const pageInfo = document.getElementById('pageInfo');
+  const pageNums = document.getElementById('pageNums');
+  const pagination = document.getElementById('pagination');
+
+  // 无数据时隐藏分页控件
+  if (total === 0) {
+    pagination.style.display = 'none';
+    return;
+  }
+  pagination.style.display = 'flex';
+
+  // 页码信息文本：第 X-Y 条 / 共 Z 条
+  const start = (page - 1) * pageSize + 1;
+  const end = Math.min(page * pageSize, total);
+  pageInfo.textContent = `第 ${start}-${end} 条 / 共 ${total} 条`;
+
+  // 渲染页码按钮（带省略号折叠）
+  pageNums.innerHTML = generatePageNumbers(page, totalPages).map(item => {
+    if (item === '...') {
+      return `<span class="page-ellipsis">···</span>`;
+    }
+    return `<button class="btn-page${item === page ? ' active' : ''}" data-page="${item}">${item}</button>`;
+  }).join('');
+
+  // 给页码按钮绑定点击事件
+  pageNums.querySelectorAll('button[data-page]').forEach(btn => {
+    btn.addEventListener('click', () => goToPage(parseInt(btn.dataset.page)));
+  });
+
+  // 上/下一页按钮的禁用状态
+  document.getElementById('prevPageBtn').disabled = page <= 1;
+  document.getElementById('nextPageBtn').disabled = page >= totalPages;
+
+  // 每页条数下拉框回显当前值
+  document.getElementById('pageSizeSelect').value = pageSize;
+}
+
+/**
+ * 生成页码数组（含省略号）
+ * 例如：当前第5页，共20页 → [1, '...', 4, 5, 6, '...', 20]
+ * @param {number} current - 当前页码
+ * @param {number} total - 总页数
+ * @returns {Array} 页码与省略号组成的数组
+ */
+function generatePageNumbers(current, total) {
+  const result = [];
+  // 页数较少（≤7页）时全部展示，无需省略号
+  if (total <= 7) {
+    for (let i = 1; i <= total; i++) {
+      result.push(i);
+    }
+    return result;
+  }
+
+  // 始终显示第1页
+  result.push(1);
+
+  // 当前页左侧：距离第1页超过2页时显示省略号
+  const leftStart = Math.max(2, current - 1);
+  if (leftStart > 2) {
+    result.push('...');
+  }
+  for (let i = leftStart; i < current; i++) {
+    result.push(i);
+  }
+
+  // 当前页
+  result.push(current);
+
+  // 当前页右侧：距离末页超过2页时显示省略号
+  const rightEnd = Math.min(total - 1, current + 1);
+  for (let i = current + 1; i <= rightEnd; i++) {
+    result.push(i);
+  }
+  if (rightEnd < total - 1) {
+    result.push('...');
+  }
+
+  // 始终显示末页
+  result.push(total);
+
+  return result;
 }
 
 /**

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QDII基金溢价率实时查看</title>
+  <title>跨境基金溢价率实时查看</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -12,7 +12,7 @@
   <!-- 页面头部 -->
   <header class="header">
     <div class="header-content">
-      <h1>QDII基金溢价率实时查看</h1>
+      <h1>跨境基金溢价率实时查看</h1>
       <div class="status-bar">
         <span id="updateTime" class="update-time">数据加载中...</span>
         <button id="refreshBtn" class="btn btn-refresh" title="手动刷新数据">刷新数据</button>
@@ -26,7 +26,6 @@
       <label for="fundTypeFilter">基金类型：</label>
       <select id="fundTypeFilter" class="select">
         <option value="ALL">全部</option>
-        <option value="QDII">QDII基金</option>
         <option value="ETF">跨境ETF</option>
         <option value="LOF">LOF基金</option>
       </select>
@@ -35,13 +34,13 @@
     <div class="filter-group">
       <label for="sortBy">排序：</label>
       <select id="sortBy" class="select">
-        <option value="estimatedPremiumRate">T日估算溢价率</option>
+        <option value="estimatedPremiumRate">实时溢价率</option>
         <option value="premiumRate">T-1溢价率</option>
         <option value="changeRate">涨跌幅</option>
         <option value="fundName">基金名称</option>
         <option value="marketPrice">市场价格</option>
         <option value="nav">T-1净值</option>
-        <option value="estimatedNav">T日估值</option>
+        <option value="estimatedNav">IOPV估值</option>
       </select>
       <select id="sortOrder" class="select">
         <option value="desc">降序</option>
@@ -91,9 +90,9 @@
           <th class="col-type">类型</th>
           <th class="col-price sortable" data-sort="marketPrice">市场价格(元) <span class="sort-icon"></span></th>
           <th class="col-nav sortable" data-sort="nav">T-1净值(元) <span class="sort-icon"></span></th>
-          <th class="col-estnav sortable" data-sort="estimatedNav">T日估值(元) <span class="sort-icon"></span></th>
+          <th class="col-estnav sortable" data-sort="estimatedNav">IOPV估值(元) <span class="sort-icon"></span></th>
           <th class="col-premium sortable" data-sort="premiumRate">T-1溢价率 <span class="sort-icon"></span></th>
-          <th class="col-estpremium sortable" data-sort="estimatedPremiumRate">T日估算溢价率 <span class="sort-icon"></span></th>
+          <th class="col-estpremium sortable" data-sort="estimatedPremiumRate">实时溢价率 <span class="sort-icon"></span></th>
           <th class="col-change sortable" data-sort="changeRate">涨跌幅 <span class="sort-icon"></span></th>
           <th class="col-volume">成交额(万)</th>
           <th class="col-risk">风险等级</th>
@@ -107,11 +106,27 @@
     <div id="emptyState" class="empty-state" style="display: none;">
       <p>暂无符合条件的基金数据</p>
     </div>
+
+    <!-- 分页控件 -->
+    <div id="pagination" class="pagination">
+      <span id="pageInfo" class="page-info"></span>
+      <div class="page-controls">
+        <button id="prevPageBtn" class="btn-page" title="上一页">‹ 上一页</button>
+        <span id="pageNums" class="page-numbers"></span>
+        <button id="nextPageBtn" class="btn-page" title="下一页">下一页 ›</button>
+        <select id="pageSizeSelect" class="select page-size-select" title="每页条数">
+          <option value="10">10条/页</option>
+          <option value="20">20条/页</option>
+          <option value="50">50条/页</option>
+          <option value="100">100条/页</option>
+        </select>
+      </div>
+    </div>
   </main>
 
   <!-- 页面底部 -->
   <footer class="footer">
-    <p>数据来源：东方财富网 | 数据每15分钟自动更新 | 仅供参考，不构成投资建议</p>
+    <p>数据来源：AkShare（东方财富）| 数据每15分钟自动更新 | 仅供参考，不构成投资建议</p>
   </footer>
 
   <script src="js/app.js"></script>

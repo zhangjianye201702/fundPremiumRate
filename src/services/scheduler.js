@@ -1,6 +1,6 @@
 /**
  * 定时任务调度器
- * 使用 node-cron 每15分钟自动刷新基金数据
+ * 使用 node-cron 每15分钟自动刷新基金数据（调用 AkShare 采集脚本）
  * 确保数据更新频率不低于每15分钟一次
  */
 const cron = require('node-cron');
@@ -37,6 +37,10 @@ async function executeRefresh() {
 /**
  * 启动定时任务
  * 按 config.CRON_EXPRESSION 配置的频率（默认每15分钟）执行数据刷新
+ *
+ * 启动流程：
+ * 1. 先尝试从历史数据文件载入缓存（若有），让前端立即可用，无需等待首次采集；
+ * 2. 再异步触发一次采集，完成后自动刷新缓存。
  */
 function startScheduledTask() {
   if (scheduledTask) {
@@ -44,8 +48,19 @@ function startScheduledTask() {
     return;
   }
 
-  // 启动时立即执行一次数据采集
-  logger.info('启动首次数据采集...');
+  // 第一步：尝试载入历史数据文件（不阻塞，失败也无妨）
+  try {
+    const loaded = fundService.loadFromDataFile();
+    if (loaded) {
+      logger.info('已载入历史数据，前端可立即访问');
+    }
+  } catch (e) {
+    // 载入失败不影响后续采集
+    logger.warn(`载入历史数据失败: ${e.message}`);
+  }
+
+  // 第二步：启动时立即执行一次数据采集（AkShare）
+  logger.info('启动首次数据采集（AkShare）...');
   executeRefresh();
 
   // 注册定时任务

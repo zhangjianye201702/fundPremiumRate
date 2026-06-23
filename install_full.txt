@@ -1,0 +1,131 @@
+﻿Defaulting to user installation because normal site-packages is not writeable
+Collecting akshare
+  Using cached akshare-1.18.64-py3-none-any.whl.metadata (13 kB)
+Collecting beautifulsoup4>=4.9.1 (from akshare)
+  Using cached beautifulsoup4-4.15.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting lxml>=4.2.1 (from akshare)
+  Using cached lxml-6.1.1-cp314-cp314-win_amd64.whl.metadata (3.6 kB)
+Collecting pandas>=2.0.0 (from akshare)
+  Using cached pandas-3.0.3-cp314-cp314-win_amd64.whl.metadata (19 kB)
+Collecting requests>=2.22.0 (from akshare)
+  Using cached requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting curl_cffi>=0.13.0 (from akshare)
+  Using cached curl_cffi-0.15.0-cp310-abi3-win_amd64.whl.metadata (18 kB)
+Collecting html5lib>=1.0.1 (from akshare)
+  Using cached html5lib-1.1-py2.py3-none-any.whl.metadata (16 kB)
+Collecting xlrd>=1.2.0 (from akshare)
+  Using cached xlrd-2.0.2-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting urllib3>=1.25.8 (from akshare)
+  Using cached urllib3-2.7.0-py3-none-any.whl.metadata (6.9 kB)
+Collecting tqdm>=4.43.0 (from akshare)
+  Using cached tqdm-4.68.2-py3-none-any.whl.metadata (58 kB)
+Collecting openpyxl>=3.0.3 (from akshare)
+  Using cached openpyxl-3.1.5-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting jsonpath>=0.82 (from akshare)
+  Using cached jsonpath-0.82.2.tar.gz (10 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting tabulate>=0.8.6 (from akshare)
+  Using cached tabulate-0.10.0-py3-none-any.whl.metadata (40 kB)
+Collecting decorator>=4.4.2 (from akshare)
+  Using cached decorator-5.3.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting mini-racer>=0.12.4 (from akshare)
+  Using cached mini_racer-0.14.1-py3-none-win_amd64.whl.metadata (23 kB)
+Collecting soupsieve>=1.6.1 (from beautifulsoup4>=4.9.1->akshare)
+  Using cached soupsieve-2.8.4-py3-none-any.whl.metadata (4.6 kB)
+Collecting typing-extensions>=4.0.0 (from beautifulsoup4>=4.9.1->akshare)
+  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting cffi>=2.0.0 (from curl_cffi>=0.13.0->akshare)
+  Using cached cffi-2.0.0-cp314-cp314-win_amd64.whl.metadata (2.6 kB)
+Collecting certifi>=2024.2.2 (from curl_cffi>=0.13.0->akshare)
+  Using cached certifi-2026.5.20-py3-none-any.whl.metadata (2.5 kB)
+Collecting rich (from curl_cffi>=0.13.0->akshare)
+  Using cached rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Collecting pycparser (from cffi>=2.0.0->curl_cffi>=0.13.0->akshare)
+  Using cached pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+Collecting six>=1.9 (from html5lib>=1.0.1->akshare)
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting webencodings (from html5lib>=1.0.1->akshare)
+  Using cached webencodings-0.5.1-py2.py3-none-any.whl.metadata (2.1 kB)
+Collecting et-xmlfile (from openpyxl>=3.0.3->akshare)
+  Using cached et_xmlfile-2.0.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting numpy>=2.3.3 (from pandas>=2.0.0->akshare)
+  Using cached numpy-2.4.6-cp314-cp314-win_amd64.whl.metadata (6.6 kB)
+Collecting python-dateutil>=2.8.2 (from pandas>=2.0.0->akshare)
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting tzdata (from pandas>=2.0.0->akshare)
+  Using cached tzdata-2026.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting charset_normalizer<4,>=2 (from requests>=2.22.0->akshare)
+  Using cached charset_normalizer-3.4.7-cp314-cp314-win_amd64.whl.metadata (41 kB)
+Collecting idna<4,>=2.5 (from requests>=2.22.0->akshare)
+  Using cached idna-3.18-py3-none-any.whl.metadata (6.1 kB)
+Collecting colorama (from tqdm>=4.43.0->akshare)
+  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting markdown-it-py>=2.2.0 (from rich->curl_cffi>=0.13.0->akshare)
+  Using cached markdown_it_py-4.2.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich->curl_cffi>=0.13.0->akshare)
+  Using cached pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich->curl_cffi>=0.13.0->akshare)
+  Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Using cached akshare-1.18.64-py3-none-any.whl (1.1 MB)
+Using cached beautifulsoup4-4.15.0-py3-none-any.whl (109 kB)
+Using cached curl_cffi-0.15.0-cp310-abi3-win_amd64.whl (1.7 MB)
+Using cached certifi-2026.5.20-py3-none-any.whl (134 kB)
+Using cached cffi-2.0.0-cp314-cp314-win_amd64.whl (185 kB)
+Using cached decorator-5.3.1-py3-none-any.whl (10 kB)
+Using cached html5lib-1.1-py2.py3-none-any.whl (112 kB)
+Using cached lxml-6.1.1-cp314-cp314-win_amd64.whl (4.1 MB)
+Using cached mini_racer-0.14.1-py3-none-win_amd64.whl (15.5 MB)
+Using cached openpyxl-3.1.5-py2.py3-none-any.whl (250 kB)
+Downloading pandas-3.0.3-cp314-cp314-win_amd64.whl (9.9 MB)
+   ---------------------------------------- 9.9/9.9 MB 60.5 kB/s  0:01:34
+Downloading numpy-2.4.6-cp314-cp314-win_amd64.whl (12.5 MB)
+   ---------------------------------------- 12.5/12.5 MB 81.6 kB/s  0:02:40
+Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+Downloading charset_normalizer-3.4.7-cp314-cp314-win_amd64.whl (159 kB)
+Downloading idna-3.18-py3-none-any.whl (65 kB)
+Downloading urllib3-2.7.0-py3-none-any.whl (131 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading soupsieve-2.8.4-py3-none-any.whl (37 kB)
+Downloading tabulate-0.10.0-py3-none-any.whl (39 kB)
+Downloading tqdm-4.68.2-py3-none-any.whl (78 kB)
+Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Downloading xlrd-2.0.2-py2.py3-none-any.whl (96 kB)
+Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading et_xmlfile-2.0.0-py3-none-any.whl (18 kB)
+Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+Downloading pygments-2.20.0-py3-none-any.whl (1.2 MB)
+   ---------------------------------------- 1.2/1.2 MB 129.3 kB/s  0:00:11
+Downloading markdown_it_py-4.2.0-py3-none-any.whl (91 kB)
+Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Downloading tzdata-2026.2-py2.py3-none-any.whl (349 kB)
+Downloading webencodings-0.5.1-py2.py3-none-any.whl (11 kB)
+Building wheels for collected packages: jsonpath
+  Building wheel for jsonpath (pyproject.toml): started
+  Building wheel for jsonpath (pyproject.toml): finished with status 'done'
+  Created wheel for jsonpath: filename=jsonpath-0.82.2-py3-none-any.whl size=5718 sha256=174ca31d9eb833c34a3f0c94e52016df0661f60668c9779427c7b72e4bb6ddcc
+  Stored in directory: c:\users\98031\appdata\local\pip\cache\wheels\3b\3e\98\f1b0b4c9e77aee01102ea3d3e9bbe2e703e5ab4f308a959944
+Successfully built jsonpath
+Installing collected packages: webencodings, jsonpath, xlrd, urllib3, tzdata, typing-extensions, tabulate, soupsieve, six, pygments, pycparser, numpy, mini-racer, mdurl, lxml, idna, et-xmlfile, decorator, colorama, charset_normalizer, certifi, tqdm, requests, python-dateutil, openpyxl, markdown-it-py, html5lib, cffi, beautifulsoup4, rich, pandas, curl_cffi, akshare
+py : ERROR: Could not install packages due to an OSError: [WinError 5] 拒绝访问。: '
+C:\\Users\\98031\\AppData\\Roaming\\Python'
+所在位置 行:1 字符: 5
++ & { py -m pip install akshare 2>&1 | Out-File -FilePath install_full. ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (ERROR: Could no...oaming\\Python' 
+   :String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Check the permissions.
+
+
+
+[notice] A new release of pip is available: 26.1.1 -> 26.1.2
+[notice] To update, run: C:\Users\98031\AppData\Local\Python\pythoncore-3.14-64
+\python.exe -m pip install --upgrade pip
